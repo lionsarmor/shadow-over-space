@@ -438,10 +438,9 @@ end
    _A0
    _A0
    _A0
-
 end
 
-  rem player sprites
+ rem initilize player 0 sprite
  player0:
   %01111110  ; Helmet
   %11000011  ; Top armor
@@ -461,11 +460,90 @@ end
  player1x = 32
  player1y = 32
 
+ 
+ e=0   : rem  counter for firing gun
+ c=50  : rem  player0 x position
+ d=50  : rem  player0 y position
+
+ dim fire=e
+ dim p0y=d
+ dim p0x=c
+
 __Main_Loop
 
-  rem Initialize player colors and disable gradients
-   COLUP1 = $28    ; Ensure player1 is red (or desired color)
+ rem *********************** move player 0 sprite left and right
+ rem Normal player sprite
+ if joy0right then player0:
+  %01111110  ; Helmet
+  %11000011  ; Top armor
+  %11110111  ; Shoulders
+  %11011101  ; Arms and chest
+  %11111111  ; Full torso
+  %00111100  ; Waistline
+  %01010010  ; Legs
+  %00110011  ; Boots
+end
 
+ rem ************************ Mirrored player sprite
+ if joy0left then player0:
+  %01111110  ; Helmet (same)
+  %11000011  ; Top armor (same)
+  %11101111  ; Shoulders (mirrored)
+  %10111011  ; Arms and chest (mirrored)
+  %11111111  ; Full torso (same)
+  %00111100  ; Waistline (same)
+  %01001010  ; Legs (mirrored)
+  %11001100  ; Boots (mirrored)
+end
+
+ rem player 0 missle
+ if x>140 || missile0x>140 then missile0y=11
+
+ if !joy0fire then fire=0 : x=p0x : missile0x=0 : missile0y=0
+
+ if joy0fire then missile0x=x+8:missile0y=p0y-y-6
+
+ if fire<60 && missile0x>135 then missile0y=0
+ if fire<60 then x=x+2 else missile0y=0
+ if fire>250 then fire=25
+
+ fire=fire+1
+
+
+ rem set player 0 gradient
+ player0color:
+   $40
+   $40
+   $42
+   $42
+   $44
+   $44
+   $46
+   $48
+   $4A
+   $4C
+   $4E
+   $50
+   $52
+   $54
+   $56
+   $58
+   $5A
+   $5C
+   $5E
+   $60
+   $60
+   $60
+   $60
+   $60
+   $60
+end
+
+
+ rem ************************** animate monster 
+
+ rem original sprite
+ rem set y variable for initial animation
  y=y+1
  
   if y=10 then player1: 
@@ -494,6 +572,8 @@ __Main_Loop
    %00001111
    %01111110
 end
+
+ rem original color
  player1color:
  $B4
  $B4
@@ -521,6 +601,7 @@ end
  $B4
 end
 
+ rem mirrored sprite 
  if y=20 then player1:
    %00111110
    %00001111
@@ -547,6 +628,8 @@ end
    %00011111
    %01111110
 end
+
+ rem mirrored color
  player1color:
  $A0
  $A0
@@ -573,7 +656,8 @@ end
  $A0
  $A0
 end
-
+ 
+ rem resets the y variable set for animation
  if y>30 then y=0 
 
  rem defines joystick controls for joystick 0 & player 0
@@ -615,7 +699,8 @@ control_done
    lda DF6FRACDATA
    lda DF4FRACDATA
 end
-
+   
+   rem resets game loop
    goto __Main_Loop
 
 
