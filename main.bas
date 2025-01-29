@@ -1,4 +1,7 @@
-
+ rem Created using Atari Dev Studio
+ rem batari Basic format
+ rem Author: James Weeks
+   
    ;****************************************************************
    ;
    ;  This program uses the DPC+ kernel.
@@ -435,12 +438,8 @@ end
    _A0
    _A0
    _A0
-end
 
-  rem Initialize player colors and disable gradients
-   COLUP1 = $28    ; Ensure player1 is red (or desired color)
-   DF6FRACINC = 0  ; Disable background color gradients
-   DF4FRACINC = 0  ; Disable playfield color gradients
+end
 
   rem player sprites
  player0:
@@ -453,33 +452,6 @@ end
   %01010010  ; Legs
   %00110011  ; Boots
 end
-
- /* player1:
- %11111111
- %00011111
- %00001111
- %00001110
- %00011100
- %00011101
- %11011001
- %01011011
- %11111110
- %00111000
- %01111110
- %00111100
- %11111111
- %11111100
- %01111111
- %10111001
- %00111001
- %00111000
- %11111100
- %01011110
- %00011110
- %00001111
- %00001111
- %11111111
-end */
 
  rem sets the location of player 0
  player0x = 16
@@ -522,6 +494,32 @@ __Main_Loop
    %00001111
    %01111110
 end
+ player1color:
+ $B4
+ $B4
+ $B4
+ $B4
+ $B4
+ $B4
+ $B4
+ $B2
+ $B2
+ $C2
+ $B2
+ $C2
+ $B2
+ $B2
+ $B2
+ $C2
+ $B2
+ $B2
+ $B4
+ $B4
+ $B4
+ $B4
+ $B4
+ $B4
+end
 
  if y=20 then player1:
    %00111110
@@ -548,6 +546,32 @@ end
    %00001111
    %00011111
    %01111110
+end
+ player1color:
+ $A0
+ $A0
+ $A0
+ $A0
+ $A0
+ $B2
+ $B2
+ $B2
+ $C2
+ $B2
+ $B2
+ $B2
+ $C2
+ $B2
+ $C2
+ $B2
+ $B2
+ $B2
+ $A0
+ $A0
+ $A0
+ $A0
+ $A0
+ $A0
 end
 
  if y>30 then y=0 
@@ -596,14 +620,4 @@ end
 
 
 
-   bank 3
-   temp1=temp1
-
-   bank 4
-   temp1=temp1
-
-   bank 5
-   temp1=temp1
-
-   bank 6
-   temp1=temp1
+  

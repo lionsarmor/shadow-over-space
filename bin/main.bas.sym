@@ -1,16 +1,16 @@
 --- Symbol List (sorted by symbol)
 0.21stcentury            0001                  
 0.__Bank_2               30a4              (R )
-0.__Main_Loop            3132              (R )
-0.condpart0              3148                  
-0.condpart1              3166                  
-0.condpart2              3184                  
-0.condpart3              318f                  
-0.condpart4              319b                  
-0.condpart5              31a5                  
-0.condpart6              31af                  
-0.condpart7              31b8                  
-0.control_done           31db              (R )
+0.__Main_Loop            3124              (R )
+0.condpart0              3130                  
+0.condpart1              3162                  
+0.condpart2              3194                  
+0.condpart3              319f                  
+0.condpart4              31ab                  
+0.condpart5              31b5                  
+0.condpart6              31bf                  
+0.condpart7              31c8                  
+0.control_done           31eb              (R )
 0.freq_table_start       1000                  
 0.L00                    1f90                  
 0.L01                    1f90                  
@@ -49,59 +49,50 @@
 0.L0129                  1f90                  
 0.L013                   1f90                  
 0.L0130                  1f90                  
-0.L0131                  1fa2                  
-0.L0132                  30a0                  
-0.L0133                  30a4                  
-0.L0134                  30c2                  
-0.L0135                  30e5                  
-0.L0136                  3108                  
-0.L0137                  3108                  
-0.L0138                  310c                  
-0.L0139                  3111                  
+0.L0131                  1f90                  
+0.L0132                  1f90                  
+0.L0133                  1fa2                  
+0.L0134                  30a0                  
+0.L0135                  30a4                  
+0.L0136                  30c2                  
+0.L0137                  30e5                  
+0.L0138                  3108                  
+0.L0139                  3108                  
 0.L014                   1f90                  
-0.L0140                  3116                  
-0.L0141                  3116                  
-0.L0142                  3122                  
-0.L0143                  3122                  
-0.L0144                  3126                  
-0.L0145                  312a                  
-0.L0146                  312a                  
-0.L0147                  312e                  
-0.L0148                  3132                  
-0.L0149                  3132                  
+0.L0140                  3114                  
+0.L0141                  3114                  
+0.L0142                  3118                  
+0.L0143                  311c                  
+0.L0144                  311c                  
+0.L0145                  3120                  
+0.L0146                  3124                  
+0.L0147                  3124                  
+0.L0148                  3128                  
+0.L0149                  312a                  
 0.L015                   1f90                  
-0.L0150                  3136                  
-0.L0151                  313b                  
-0.L0152                  3140                  
-0.L0153                  3142                  
-0.L0154                  3160                  
-0.L0155                  317e                  
-0.L0156                  3188                  
-0.L0157                  3188                  
-0.L0158                  3194                  
-0.L0159                  31a0                  
+0.L0150                  3148                  
+0.L0151                  315c                  
+0.L0152                  317a                  
+0.L0153                  318e                  
+0.L0154                  3198                  
+0.L0155                  3198                  
+0.L0156                  31a4                  
+0.L0157                  31b0                  
+0.L0158                  31ba                  
+0.L0159                  31c4                  
 0.L016                   1f90                  
-0.L0160                  31aa                  
-0.L0161                  31b4                  
-0.L0162                  31b4                  
-0.L0163                  31db                  
-0.L0164                  31f3                  
-0.L0165                  31f8                  
-0.L0166                  31fd                  
-0.L0167                  3202                  
-0.L0168                  3207                  
-0.L0169                  320c                  
+0.L0160                  31c4                  
+0.L0161                  31eb                  
+0.L0162                  3203                  
+0.L0163                  3208                  
+0.L0164                  320d                  
+0.L0165                  3212                  
+0.L0166                  3217                  
+0.L0167                  321c                  
+0.L0168                  3221                  
+0.L0169                  3227                  
 0.L017                   1f90                  
-0.L0170                  3211                  
-0.L0171                  3217                  
-0.L0172                  321a                  
-0.L0173                  5081                  
-0.L0174                  5085                  
-0.L0175                  7081                  
-0.L0176                  7085                  
-0.L0177                  9081                  
-0.L0178                  9085                  
-0.L0179                  b081                  
+0.L0170                  322a                  
 0.L018                   1f90                  
 0.L019                   1f90                  
 0.L02                    1f90                  
@@ -192,14 +183,14 @@
 0.L097                   1f90                  
 0.L098                   1f90                  
 0.L099                   1f90                  
-0.skipL0153              3160              (R )
-0.skipL0154              317e              (R )
-0.skipL0155              3188              (R )
-0.skipL0157              3194              (R )
-0.skipL0158              31a0              (R )
-0.skipL0159              31aa              (R )
-0.skipL0160              31b4              (R )
-0.skipL0162              31db              (R )
+0.skipL0149              3148              (R )
+0.skipL0151              317a              (R )
+0.skipL0153              3198              (R )
+0.skipL0155              31a4              (R )
+0.skipL0156              31b0              (R )
+0.skipL0157              31ba              (R )
+0.skipL0158              31c4              (R )
+0.skipL0160              31eb              (R )
 10.CYCLES                0002              (R )
 11.CYCLES                0002              (R )
 12.CYCLES                0002              (R )
@@ -392,7 +383,7 @@ B4                       0033
 B5                       003f                  
 B6                       004b                  
 B7                       0057                  
-backgroundcolorL0135     d360              (R )
+backgroundcolorL0137     d360              (R )
 ballheight               00c4              (R )
 ballx                    0084                  
 bally                    00c1              (R )
@@ -758,12 +749,12 @@ player0color             00a3
 player0height            00a5              (R )
 player0pointerhi         00be              (R )
 player0pointerlo         00bd              (R )
-player0then_1            d3c0              (R )
+player0then_1            d3c1              (R )
 player0x                 0080              (R )
 player0xcoll             008f              (R )
 player0y                 0099              (R )
 player1height            00a6              (R )
-player1then_1            d3d8              (R )
+player1then_1            d3f1              (R )
 player1x                 0090              (R )
 player1y                 009a              (R )
 player2height            00a7                  
@@ -790,9 +781,11 @@ player8y                 00a1
 player9height            00ae                  
 player9x                 0098                  
 player9y                 00a2                  
-playerL0141_0            d3b8              (R )
+playercolorL0150_1       d3d9              (R )
+playercolorL0152_1       d409              (R )
+playerL0139_0            d3b9              (R )
 playerpointers           d1e2              (R )
-playfieldcolorL0134      d308              (R )
+playfieldcolorL0136      d308              (R )
 playfieldpos             00ca              (R )
 Q                        00e1              (R )
 q                        00e1                  
@@ -819,7 +812,7 @@ RESMP1                   0029
 RESP0                    0010              (R )
 RESP1                    0011              (R )
 ret_point1               30c2              (R )
-ret_point2               31f3              (R )
+ret_point2               3203              (R )
 retroputer               0005                  
 ROM2k                    0000 ????         (R )
 RRESET                   1070                  
