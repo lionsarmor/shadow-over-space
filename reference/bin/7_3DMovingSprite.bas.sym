@@ -67,8 +67,8 @@
 6.CYCLES                 0004              (R )
 7.CYCLES                 0000              (R )
 8.CYCLES                 0006              (R )
-A                        00d4                  
 a                        00d4              (R )
+A                        00d4                  
 alarmclock               0002                  
 altkernel                f0e4                  
 AUDC0                    0015                  
@@ -92,8 +92,8 @@ bally                    0089              (R )
 bankswitch               0000 ????         (R )
 bankswitch_hotspot       0000 ????         (R )
 beginscore               f20b              (R )
-C                        00d6                  
 c                        00d6              (R )
+C                        00d6                  
 clearmem                 f014              (R )
 COLUBK                   0009              (R )
 COLUP0                   0006              (R )
@@ -112,8 +112,8 @@ CXM1P                    0001
 CXP0FB                   0002                  
 CXP1FB                   0003                  
 CXPPMM                   0007                  
-D                        00d7                  
 d                        00d7                  
+D                        00d7                  
 debugcycles              0000 ????         (R )
 debugscore               0000 ????         (R )
 DivideLoop               f3e1              (R )
@@ -121,19 +121,19 @@ doneoverscan             f3c2
 down2                    f38d              (R )
 DPC_kernel_options       0000 ????         (R )
 drawscreen               f3bd              (R )
-E                        00d8                  
 e                        00d8                  
+E                        00d8                  
 ECHOFIRST                0001                  
 ENABL                    001f              (R )
 ENAM0                    001d              (R )
 ENAM1                    001e              (R )
 endkernel                f178              (R )
 enterlastkernel          f127              (R )
-F                        00d9                  
 f                        00d9                  
+F                        00d9                  
 font                     0000 ????         (R )
-G                        00da                  
 g                        00da                  
+G                        00da                  
 game                     f45d              (R )
 goback                   f0a6              (R )
 GRP0                     001b              (R )
@@ -150,8 +150,8 @@ HMOVE                    002a              (R )
 HMP0                     0020              (R )
 HMP1                     0021              (R )
 HorPosLoop               f3de              (R )
-I                        00dc                  
 i                        00dc                  
+I                        00dc                  
 initscore                f021              (R )
 INPT0                    0008                  
 INPT1                    0009                  
@@ -162,16 +162,16 @@ INPT5                    000d
 interlaced               0000 ????         (R )
 interrupted              0004                  
 INTIM                    0284              (R )
-J                        00dd                  
 j                        00dd                  
-K                        00de                  
+J                        00dd                  
 k                        00de                  
+K                        00de                  
 keepgoing                f284              (R )
 keepgoingy               f2a0              (R )
 kernel                   f034              (R )
 kernelmacrodef           0000 ????         (R )
-L                        00df                  
 l                        00df                  
+L                        00df                  
 lastkernelline           f101              (R )
 leftloop                 f2f7              (R )
 legacy                   0000 ????         (R )
@@ -179,8 +179,8 @@ lifecolor                00f4
 lifepointer              00f2                  
 lives                    00f3                  
 loop2                    f203              (R )
-M                        00e0                  
 m                        00e0                  
+M                        00e0                  
 MachineIs2600            f011              (R )
 mincycles                0000 ????         (R )
 minikernel               0000 ????         (R )
@@ -205,16 +205,16 @@ notright                 f31e              (R )
 notup                    f36a              (R )
 NUSIZ0                   0004              (R )
 NUSIZ1                   0005              (R )
-O                        00e2                  
 o                        00e2                  
+O                        00e2                  
 objecty                  0085                  
 onedecup                 f326              (R )
 oneincup                 f36f              (R )
 overscan                 f3bd                  
 overscan_time            0000 ????         (R )
 overscanloop             f3bd              (R )
-P                        00e3                  
 p                        00e3                  
+P                        00e3                  
 paddle                   0091                  
 PF0                      000d              (R )
 PF1                      000e              (R )
@@ -319,8 +319,8 @@ SWACNT                   0281
 SWBCNT                   0283                  
 SWCHA                    0280                  
 SWCHB                    0282                  
-T                        00e7                  
 t                        00e7                  
+T                        00e7                  
 T1024T                   0297                  
 temp1                    009c              (R )
 temp2                    009d              (R )
@@ -402,14 +402,14 @@ VERSION_MACRO            0069
 VERSION_VCS              0069                  
 vertical_reflect         0000 ????         (R )
 VSYNC                    0000              (R )
-W                        00ea                  
 w                        00ea                  
+W                        00ea                  
 whimsey                  0006                  
 WSYNC                    0002              (R )
 X                        00eb                  
 x                        00eb                  
-Y                        00ec                  
 y                        00ec                  
-Z                        00ed                  
+Y                        00ec                  
 z                        00ed                  
+Z                        00ed                  
 --- End of Symbol List.

@@ -1,47 +1,35 @@
 --- Symbol List (sorted by symbol)
 0.21stcentury            0001                  
-0.condpart0              f479                  
-0.condpart1              f483                  
-0.condpart2              f48c                  
-0.condpart3              f495                  
+0.condpart0              f46d                  
+0.condpart1              f47f                  
+0.condpart2              f491                  
+0.condpart3              f4a3                  
 0.continuelastP0         f165              (R )
 0.continuelastP1         f139              (R )
 0.continueP0             f0d6              (R )
 0.continueP1             f0b2              (R )
 0.endkerloop             f112              (R )
 0.enterfromNBL           f113                  
-0.frame1                 f49e              (R )
-0.frame2                 f4de              (R )
-0.frame3                 f51e              (R )
-0.framereturn            f49b              (R )
 0.kerloop                f08f                  
 0.L00                    f45d                  
 0.L01                    f461                  
-0.L010                   f498                  
-0.L011                   f49b                  
-0.L012                   f49e                  
-0.L013                   f4db                  
-0.L014                   f4de                  
-0.L015                   f51b                  
-0.L016                   f51e                  
-0.L017                   f55b                  
 0.L02                    f465                  
-0.L03                    f469                  
-0.L04                    f46d                  
-0.L05                    f471                  
-0.L06                    f473                  
-0.L07                    f47d                  
-0.L08                    f486                  
-0.L09                    f48f                  
-0.main                   f469              (R )
+0.L03                    f467                  
+0.L04                    f479                  
+0.L05                    f48b                  
+0.L06                    f49d                  
+0.L07                    f4a7                  
+0.L08                    f4ad                  
+0.L09                    f4b0                  
+0.main                   f45d              (R )
 0.skipDrawlastP0         f172              (R )
 0.skipDrawlastP1         f10c              (R )
 0.skipDrawP0             f083              (R )
 0.skipDrawP1             f089              (R )
-0.skipL06                f47d              (R )
-0.skipL07                f486              (R )
-0.skipL08                f48f              (R )
-0.skipL09                f498              (R )
+0.skipL03                f479              (R )
+0.skipL04                f48b              (R )
+0.skipL05                f49d              (R )
+0.skipL06                f4a7              (R )
 0.startkernel            f0a8              (R )
 1.CYCLES                 0000              (R )
 19.CYCLES                0000              (R )
@@ -68,7 +56,7 @@ aux3                     00f2
 aux4                     00f3                  
 aux5                     00f4                  
 aux6                     00f5                  
-b                        00d5              (R )
+b                        00d5                  
 B                        00d5                  
 backgroundchange         0000 ????         (R )
 ballheight               0092              (R )
@@ -77,13 +65,13 @@ bally                    0089              (R )
 bankswitch               0000 ????         (R )
 bankswitch_hotspot       0000 ????         (R )
 beginscore               f20b              (R )
-c                        00d6                  
 C                        00d6                  
+c                        00d6                  
 clearmem                 f014              (R )
 COLUBK                   0009              (R )
 COLUP0                   0006              (R )
 COLUP1                   0007              (R )
-COLUPF                   0008              (R )
+COLUPF                   0008                  
 continuekernel           f08f              (R )
 continuekernel2          f090                  
 CTRLPF                   000a              (R )
@@ -114,8 +102,8 @@ ENAM0                    001d              (R )
 ENAM1                    001e              (R )
 endkernel                f178              (R )
 enterlastkernel          f127              (R )
-F                        00d9                  
 f                        00d9                  
+F                        00d9                  
 font                     0000 ????         (R )
 G                        00da                  
 g                        00da                  
@@ -147,16 +135,16 @@ INPT5                    000d
 interlaced               0000 ????         (R )
 interrupted              0004                  
 INTIM                    0284              (R )
-j                        00dd                  
 J                        00dd                  
+j                        00dd                  
 K                        00de                  
 k                        00de                  
 keepgoing                f284              (R )
 keepgoingy               f2a0              (R )
 kernel                   f034              (R )
 kernelmacrodef           0000 ????         (R )
-L                        00df                  
 l                        00df                  
+L                        00df                  
 lastkernelline           f101              (R )
 leftloop                 f2f7              (R )
 legacy                   0000 ????         (R )
@@ -176,8 +164,8 @@ missile1height           0087              (R )
 missile1x                0083                  
 missile1y                0088              (R )
 multisprite              0000 ????         (R )
-n                        00e1                  
 N                        00e1                  
+n                        00e1                  
 no_blank_lines           0000 ????         (R )
 NO_ILLEGAL_OPCODES       0000 ????         (R )
 noeor                    f3ba              (R )
@@ -190,16 +178,16 @@ notright                 f31e              (R )
 notup                    f36a              (R )
 NUSIZ0                   0004              (R )
 NUSIZ1                   0005              (R )
-o                        00e2                  
 O                        00e2                  
+o                        00e2                  
 objecty                  0085                  
 onedecup                 f326              (R )
 oneincup                 f36f              (R )
 overscan                 f3bd                  
 overscan_time            0000 ????         (R )
 overscanloop             f3bd              (R )
-p                        00e3                  
 P                        00e3                  
+p                        00e3                  
 paddle                   0091                  
 PF0                      000d              (R )
 PF1                      000e              (R )
@@ -208,9 +196,6 @@ PF1R                     000e              (R )
 PF2                      000f              (R )
 PF2L                     000f              (R )
 PF2R                     000f              (R )
-PF_data0                 f4a3              (R )
-PF_data1                 f4e3              (R )
-PF_data2                 f523              (R )
 pfadjust                 0000              (R )
 pfcenter                 0000 ????         (R )
 pfclear                  f251                  
@@ -222,9 +207,6 @@ pfhalfwidth              0000 ????         (R )
 PFheights                0000 ????         (R )
 pfheighttable            00f0                  
 pfhline                  f27e                  
-pflabel0                 f4d3              (R )
-pflabel1                 f513              (R )
-pflabel2                 f553              (R )
 PFmaskvalue              0000 ????         (R )
 pfpixel                  f278                  
 pfread                   f26b                  
@@ -245,23 +227,26 @@ player0height            008e              (R )
 player0pointer           008a              (R )
 player0pointerhi         008b                  
 player0pointerlo         008a                  
+player0then_1            f4b3              (R )
 player0x                 0080              (R )
 player0y                 0085              (R )
 player1color             0087                  
 player1colors            0000 ????         (R )
 player1height            008f              (R )
 player1pointer           008c              (R )
-player1pointerhi         008d                  
-player1pointerlo         008c                  
-player1x                 0081                  
+player1pointerhi         008d              (R )
+player1pointerlo         008c              (R )
+player1then_1            f4be              (R )
+player1x                 0081              (R )
 player1y                 0086              (R )
+player2then_1            f4c9              (R )
 playercolors             0000 ????         (R )
 playfield                00a4              (R )
 playfieldbase            00a4              (R )
 playfieldpos             00ef              (R )
 plotpoint                f2ac              (R )
-q                        00e4                  
 Q                        00e4                  
+q                        00e4                  
 qtcontroller             0000 ????         (R )
 r                        00e5                  
 R                        00e5                  
@@ -283,8 +268,8 @@ retroputer               0005
 rightloop                f30d              (R )
 ROM2k                    0000 ????         (R )
 RSYNC                    0003                  
-S                        00e6                  
 s                        00e6                  
+S                        00e6                  
 score                    0093              (R )
 scorecolor               00a3              (R )
 scorefade                0000 ????         (R )
@@ -324,8 +309,8 @@ TIM64T                   0296              (R )
 TIM8T                    0295                  
 TIMINT                   0285                  
 tiny                     0007                  
-U                        00e8                  
 u                        00e8                  
+U                        00e8                  
 up2                      f342              (R )
 v                        00e9                  
 V                        00e9                  
@@ -393,10 +378,10 @@ w                        00ea
 W                        00ea                  
 whimsey                  0006                  
 WSYNC                    0002              (R )
+x                        00eb                  
 X                        00eb                  
-x                        00eb              (R )
-y                        00ec              (R )
 Y                        00ec                  
+y                        00ec              (R )
+z                        00ed                  
 Z                        00ed                  
-z                        00ed              (R )
 --- End of Symbol List.

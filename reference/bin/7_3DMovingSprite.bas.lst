@@ -1,4 +1,4 @@
-------- FILE 7_3DMovingSprite.bas.asm LEVEL 1 PASS 2
+------- FILE c:\Users\Admin\Desktop\shadow-over-space\reference\7_3DMovingSprite.bas.asm LEVEL 1 PASS 2
       1  10000 ????						; Provided under the CC0 license. See the included LICENSE.txt for details.
       2  10000 ????
       3  10000 ????				       processor	6502
@@ -206,7 +206,7 @@
     200  10000 ????				       SEG
     201  10000 ????
     202  10000 ????						; EOF
-------- FILE 7_3DMovingSprite.bas.asm
+------- FILE c:\Users\Admin\Desktop\shadow-over-space\reference\7_3DMovingSprite.bas.asm
 ------- FILE macro.h LEVEL 2 PASS 2
       0  10000 ????				       include	"macro.h"
       1  10000 ????						; Provided under the CC0 license. See the included LICENSE.txt for details.
@@ -357,7 +357,7 @@
     146  10000 ????				       ENDM
     147  10000 ????
     148  10000 ????						; EOF
-------- FILE 7_3DMovingSprite.bas.asm
+------- FILE c:\Users\Admin\Desktop\shadow-over-space\reference\7_3DMovingSprite.bas.asm
 ------- FILE 2600basic.h LEVEL 2 PASS 2
       0  10000 ????				       include	"2600basic.h"
       1  10000 ????						; Provided under the CC0 license. See the included LICENSE.txt for details.
@@ -952,12 +952,12 @@
     232  10000 ????			   -	       else
     233  10000 ????			   -playfield  =	playfieldbase-(pfres-12*(4/pfwidth))*pfwidth
     234  10000 ????				       endif
-------- FILE 7_3DMovingSprite.bas.asm
+------- FILE c:\Users\Admin\Desktop\shadow-over-space\reference\7_3DMovingSprite.bas.asm
 ------- FILE 2600basic_variable_redefs.h LEVEL 2 PASS 2
       0  10000 ????				       include	"2600basic_variable_redefs.h"
       1  10000 ????						; This file contains variable mapping and other information for the current project.
       2  10000 ????
-------- FILE 7_3DMovingSprite.bas.asm
+------- FILE c:\Users\Admin\Desktop\shadow-over-space\reference\7_3DMovingSprite.bas.asm
       8  10000 ????			   -	       ifconst	bankswitch
       9  10000 ????			   -	       if	bankswitch == 8
      10  10000 ????			   -	       ORG	$1000
@@ -2066,10 +2066,10 @@
     929  f259
     930  f259				   setuppointers
     931  f259		       86 9d		      stx	temp2	; store on.off.flip value
-    932  f25b		       aa		      tax		; put x-value in x
+    932  f25b		       aa		      tax		; put x-value in x 
     933  f25c		       4a		      lsr
     934  f25d		       4a		      lsr
-    935  f25e		       4a		      lsr		; divide x pos by 8
+    935  f25e		       4a		      lsr		; divide x pos by 8 
     936  f25f		       85 9c		      sta	temp1
     937  f261		       98		      tya
     938  f262		       0a		      asl
@@ -2164,7 +2164,7 @@
    1017  f293							;x=xvalue, y=yvalue, a=0,1,2, temp3=endx
    1018  f293		       20 59 f2 	      jsr	setuppointers
    1019  f296		       84 9c		      sty	temp1	; store memory location offset
-   1020  f298		       e6 9e		      inc	temp3	; increase final x by 1
+   1020  f298		       e6 9e		      inc	temp3	; increase final x by 1 
    1021  f29a		       a5 9e		      lda	temp3
    1022  f29c		       0a		      asl
    1023  f29d					      if	pfwidth=4
@@ -2851,13 +2851,13 @@
    1655  f461		       a9 3c		      LDA	#60
    1656  f463		       85 d6		      STA	c
    1657  f465				   .
-   1658  f465							;
+   1658  f465							; 
    1659  f465
    1660  f465				   .main
    1661  f465							; main
    1662  f465
    1663  f465				   .
-   1664  f465							;
+   1664  f465							; 
    1665  f465
    1666  f465				   .L02 		;  COLUBK = 2
    1667  f465
@@ -2868,7 +2868,7 @@
    1672  f469		       a9 1c		      LDA	#28
    1673  f46b		       85 06		      STA	COLUP0
    1674  f46d				   .
-   1675  f46d							;
+   1675  f46d							; 
    1676  f46d
    1677  f46d				   .L04 		;  if a < 1 then a = 44
    1678  f46d
@@ -2891,7 +2891,7 @@
    1695  f483		       85 d4		      STA	a
    1696  f485				   .skipL05
    1697  f485				   .
-   1698  f485							;
+   1698  f485							; 
    1699  f485
    1700  f485				   .L06 		;  if a > 35 then c = c - 1 :	goto sprite4
    1701  f485
@@ -2952,13 +2952,13 @@
    1756  f4c3							; returnhere
    1757  f4c3
    1758  f4c3				   .
-   1759  f4c3							;
+   1759  f4c3							; 
    1760  f4c3
    1761  f4c3				   .L010		;  a = a + 1
    1762  f4c3
    1763  f4c3		       e6 d4		      INC	a
    1764  f4c5				   .
-   1765  f4c5							;
+   1765  f4c5							; 
    1766  f4c5
    1767  f4c5				   .L011		;  player0x = c : player0y = a
    1768  f4c5
@@ -2967,20 +2967,20 @@
    1771  f4c9		       a5 d4		      LDA	a
    1772  f4cb		       85 85		      STA	player0y
    1773  f4cd				   .
-   1774  f4cd							;
+   1774  f4cd							; 
    1775  f4cd
    1776  f4cd				   .L012		;  drawscreen
    1777  f4cd
    1778  f4cd		       20 bd f3 	      jsr	drawscreen
    1779  f4d0				   .
-   1780  f4d0							;
+   1780  f4d0							; 
    1781  f4d0
    1782  f4d0				   .L013		;  goto main
    1783  f4d0
    1784  f4d0		       4c 65 f4 	      jmp	.main
    1785  f4d3
    1786  f4d3				   .
-   1787  f4d3							;
+   1787  f4d3							; 
    1788  f4d3
    1789  f4d3				   .sprite1
    1790  f4d3							; sprite1
@@ -2998,7 +2998,7 @@
    1802  f4df		       4c c3 f4 	      jmp	.returnhere
    1803  f4e2
    1804  f4e2				   .
-   1805  f4e2							;
+   1805  f4e2							; 
    1806  f4e2
    1807  f4e2				   .sprite2
    1808  f4e2							; sprite2
@@ -3016,7 +3016,7 @@
    1820  f4ee		       4c c3 f4 	      jmp	.returnhere
    1821  f4f1
    1822  f4f1				   .
-   1823  f4f1							;
+   1823  f4f1							; 
    1824  f4f1
    1825  f4f1				   .sprite3
    1826  f4f1							; sprite3
@@ -3034,7 +3034,7 @@
    1838  f4fd		       4c c3 f4 	      jmp	.returnhere
    1839  f500
    1840  f500				   .
-   1841  f500							;
+   1841  f500							; 
    1842  f500
    1843  f500				   .sprite4
    1844  f500							; sprite4
@@ -3052,7 +3052,7 @@
    1856  f50c		       4c c3 f4 	      jmp	.returnhere
    1857  f50f
    1858  f50f				   .
-   1859  f50f							;
+   1859  f50f							; 
    1860  f50f
    1861  f50f				  -	      if	(<*) > (<(*+5))
    1862  f50f				  -	      repeat	($100-<*)
