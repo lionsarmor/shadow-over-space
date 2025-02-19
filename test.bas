@@ -181,15 +181,10 @@ end
  drawscreen
 
   rem Make the guy move
-  if joy0right  then p0x=p0x+1
+  if joy0right then p0x=p0x+1
   if joy0left then p0x=p0x-1
-
   if joy0up then p0y=p0y-1
   if joy0down then p0y=p0y+1
-
-
-  if collision(player0,playfield) && joy0up then p0y=p0y+2 
-  if collision(player0,playfield) && joy0down then p0y=p0y-2 
 
      rem you have to have a game loop, so tell the program to jump back to the beginning.
 

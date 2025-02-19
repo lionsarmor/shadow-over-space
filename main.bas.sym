@@ -10,7 +10,11 @@
 0.condpart15             f62f                  
 0.condpart16             f638                  
 0.condpart17             f641                  
+0.condpart18             f647                  
+0.condpart19             f64e                  
 0.condpart2              f57c                  
+0.condpart20             f659                  
+0.condpart21             f660                  
 0.condpart3              f58e                  
 0.condpart4              f5a0                  
 0.condpart5              f5b2                  
@@ -93,12 +97,16 @@
 0.L068                   f63a                  
 0.L069                   f643                  
 0.L07                    f4a6                  
-0.L070                   f643                  
+0.L070                   f655                  
+0.L071                   f667                  
+0.L072                   f667                  
 0.L08                    f4aa                  
 0.L09                    f4ae                  
 0.main                   f4e3              (R )
 0.skip0OR                f5c9              (R )
 0.skip10then             f600              (R )
+0.skip18then             f655              (R )
+0.skip20then             f667              (R )
 0.skipDrawlastP0         f172              (R )
 0.skipDrawlastP1         f10c              (R )
 0.skipDrawP0             f083              (R )
@@ -120,6 +128,8 @@
 0.skipL066               f631              (R )
 0.skipL067               f63a              (R )
 0.skipL068               f643              (R )
+0.skipL069               f655              (R )
+0.skipL070               f667              (R )
 0.startkernel            f0a8              (R )
 0.titlescreen            f45d              (R )
 1.CYCLES                 0000              (R )
@@ -131,8 +141,8 @@
 6.CYCLES                 0004              (R )
 7.CYCLES                 0000              (R )
 8.CYCLES                 0006              (R )
-a                        00d4                  
 A                        00d4                  
+a                        00d4                  
 alarmclock               0002                  
 altkernel                f0e4                  
 AUDC0                    0015                  
@@ -147,8 +157,8 @@ aux3                     00f2
 aux4                     00f3                  
 aux5                     00f4                  
 aux6                     00f5                  
-b                        00d5                  
 B                        00d5                  
+b                        00d5                  
 backgroundchange         0000 ????         (R )
 ballheight               0092              (R )
 ballx                    0084                  
@@ -173,7 +183,7 @@ CXM0FB                   0004
 CXM0P                    0000              (R )
 CXM1FB                   0005                  
 CXM1P                    0001                  
-CXP0FB                   0002                  
+CXP0FB                   0002              (R )
 CXP1FB                   0003                  
 CXPPMM                   0007                  
 d                        00d7              (R )
@@ -185,8 +195,8 @@ doneoverscan             f3c2
 down2                    f38d              (R )
 DPC_kernel_options       0000 ????         (R )
 drawscreen               f3bd              (R )
-E                        00d8                  
 e                        00d8              (R )
+E                        00d8                  
 ECHOFIRST                0001                  
 ENABL                    001f              (R )
 ENAM0                    001d              (R )
@@ -197,14 +207,14 @@ f                        00d9
 F                        00d9                  
 fire                     00d8              (R )
 font                     0000 ????         (R )
-g                        00da              (R )
 G                        00da                  
+g                        00da              (R )
 game                     f45d              (R )
 goback                   f0a6              (R )
 GRP0                     001b              (R )
 GRP1                     001c              (R )
-h                        00db              (R )
 H                        00db                  
+h                        00db              (R )
 handwritten              0003                  
 hex                      0008                  
 HMBL                     0024                  
@@ -227,8 +237,8 @@ INPT5                    000d
 interlaced               0000 ????         (R )
 interrupted              0004                  
 INTIM                    0284              (R )
-j                        00dd                  
 J                        00dd                  
+j                        00dd                  
 k                        00de                  
 K                        00de                  
 keepgoing                f284              (R )
@@ -257,8 +267,8 @@ missile1x                0083
 missile1y                0088              (R )
 monsterSprite            00e0              (R )
 multisprite              0000 ????         (R )
-n                        00e1              (R )
 N                        00e1                  
+n                        00e1              (R )
 no_blank_lines           0000 ????         (R )
 NO_ILLEGAL_OPCODES       0000 ????         (R )
 noeor                    f3ba              (R )
@@ -340,11 +350,11 @@ player1pointerhi         008d              (R )
 player1pointerlo         008c              (R )
 player1x                 0081              (R )
 player1y                 0086              (R )
-player2then_1            f656              (R )
-player3then_1            f661              (R )
-player4then_1            f66c              (R )
+player2then_1            f67a              (R )
+player3then_1            f685              (R )
+player4then_1            f690              (R )
 playercolors             0000 ????         (R )
-playerL048_0             f646              (R )
+playerL048_0             f66a              (R )
 playerSprite             00e1                  
 playfield                00a4              (R )
 playfieldbase            00a4              (R )
@@ -396,8 +406,8 @@ SWACNT                   0281
 SWBCNT                   0283                  
 SWCHA                    0280              (R )
 SWCHB                    0282                  
-t                        00e7              (R )
 T                        00e7                  
+t                        00e7              (R )
 T1024T                   0297                  
 temp1                    009c              (R )
 temp2                    009d              (R )
@@ -414,8 +424,8 @@ TIM64T                   0296              (R )
 TIM8T                    0295                  
 TIMINT                   0285                  
 tiny                     0007                  
-u                        00e8                  
 U                        00e8                  
+u                        00e8                  
 up2                      f342              (R )
 V                        00e9                  
 v                        00e9                  
@@ -483,8 +493,8 @@ w                        00ea
 W                        00ea                  
 whimsey                  0006                  
 WSYNC                    0002              (R )
-X                        00eb                  
 x                        00eb              (R )
+X                        00eb                  
 Y                        00ec                  
 y                        00ec              (R )
 z                        00ed                  
