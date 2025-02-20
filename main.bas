@@ -26,6 +26,8 @@
     n = 0    : rem counter for player animation frames
     z = 0    : rem Flag to simulate monster ai
     k = 0    : rem flag for monster missile
+    p = 30   : rem flag for monster health
+    j = 5    : rem flag for player health
 
    rem ---------------------------------------------------------------------------------
   dim p0y =  d : rem player vertical position
@@ -44,6 +46,8 @@
   player0y = p0y : rem set player position y
   player1y = p1y : rem set monster position y
   player1x = p1x : rem set monster position x
+
+
 
 titlescreen
    rem ---------------------------------------------------------------------------------
@@ -70,8 +74,13 @@ end
 
  goto titlescreen : rem if the joystick button is not pressed, just loop back to the titlescreen again
 
+
    rem ---------------------------------------------------------------------------------
 main
+
+   rem ---------------------------------------------------------------------------------
+   if p = 0 then goto win    : rem player hits monster 30 times win
+   if j = 0 then goto lose   : rem player get hit 5 times lose
 
  playerSprite=playerSprite+1       : rem animation frames for player
  
@@ -196,10 +205,10 @@ end
     COLUBK = 00                : rem BACKGROUND BALCK Change the background color with COLUBK
    rem ---------------------------------------------------------------------------------
 
-   if collision(missile1, player0) then player1x = (rand & 63) + 40 : player0y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : rem if missile and monster collide monster changes position
+   if collision(missile1, player0) then player1x = (rand & 63) + 40 : player0y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : j = j - 1 : rem if missile and monster collide monster changes position
 
-   if collision(missile0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30 : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : rem if missile and monster collide monster changes position
-   if collision(player0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30  : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : rem if player and monster collide monster changes position
+   if collision(missile0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30 : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : p = p - 1 : rem if missile and monster collide monster changes position
+   if collision(player0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30  : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : j = j - 1 : rem if player and monster collide monster changes position
 
    rem ---------------------------------------------------------------------------------
    p0x = 0                   : rem player movement sprite left & right
@@ -211,8 +220,6 @@ end
    if joy0up then p0y = 255 
    if joy0down then p0y = 1  
    player0y = player0y + p0y
-
-
 
    rem ---------------------------------------------------------------------------------
    rem This section sets a value for the last direction the joystick was pushed
@@ -315,4 +322,43 @@ knock_player_back
    player0x = player0x - p0x
    player0y = player0y - p0y
    return
+
+win
+  COLUPF = $1C + (rand & 3)  : rem Set random yellow shades for the playfield
+
+ playfield:
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ X..............................X
+ X.XX....XX.XX.XXXXX......XX.XX.X
+ X.XX....XX.XX.XX..XX.....XX.XX.X
+ X.XX....XX.XX.XX...XX....XX.XX.X
+ X.XX....XX.XX.XX....XX...XX.XX.X
+ X.XX....XX.XX.XX.....XX..XX.XX.X
+ X.XX.XX.XX.XX.XX......XX.XX....X
+ X.XX.XX.XX.XX.XX.......XXXX.XX.X
+ X.XXX..XXX.XX.XX........XXX.XX.X
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+end
+ drawscreen
+ goto win
+
+lose
+  COLUPF = $4C + (rand & 3)  : rem Set random red shades for the playfield
+
+ playfield:
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ X..............................X
+ X.XXXX..X.XXXXX.X..X...........X
+ X.X.....X...X...XXXX...........X
+ X.XXXX..X...X......X...........X
+ X.............XXXXX..XXXXXXXXX.X
+ X.X.....XXXXX.X.........XX.....X
+ X.X.....X...X.XXXXXX....XX.....X
+ X.XXXXX.XXXXX......X....XX.....X
+ X............XXXXXXX....XX.....X
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+end
+  drawscreen
+  goto lose
+
 
