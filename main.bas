@@ -28,6 +28,7 @@
     k = 0    : rem flag for monster missile
     p = 30   : rem flag for monster health
     j = 5    : rem flag for player health
+    s = 0    : rem player sprite direction
 
    rem ---------------------------------------------------------------------------------
   dim p0y =  d : rem player vertical position
@@ -82,9 +83,21 @@ main
    if p = 0 then goto win    : rem player hits monster 30 times win
    if j = 0 then goto lose   : rem player get hit 5 times lose
 
- playerSprite=playerSprite+1       : rem animation frames for player
- 
-  if playerSprite=10 then player0: 
+     if joy0right then w = 1  : rem Set direction to right
+   if joy0left then w = 0   : rem Set direction to left
+
+   playerSprite = playerSprite + 1  : rem Increase animation frame counter
+
+   if playerSprite > 30 then playerSprite = 0  : rem Reset animation cycle
+
+   if joy0right then s = 1  : rem Set direction to right
+   if joy0left then s = 0   : rem Set direction to left
+
+   playerSprite = playerSprite + 1  : rem Increase animation frame counter
+
+   if playerSprite > 30 then playerSprite = 0  : rem Reset animation cycle
+
+   if s = 1 then player0:
          %01110110 
          %01100100 
          %01100100 
@@ -102,41 +115,24 @@ main
          %01111000
          %00110000 
 end
- if playerSprite=20 then player0:
-         %01110110 
-         %01100100 
-         %01100100 
-         %00111100 
-         %01111100
-         %11111111
-         %10111101
-         %11111111
-         %11111100
-         %00111000
-         %11100100
-         %11000100
-         %11000100
-         %11111100
-         %01111000
-         %00110000 
-end
- if playerSprite=30 then player0:
-         %01110110 
-         %01100100 
-         %01100100 
-         %00111100 
-         %01111100
-         %11111111
-         %10111101
-         %11111111
-         %11111100
-         %00111000
-         %11100100
-         %11000100
-         %11000100
-         %11111100
-         %01111000
-         %00110000 
+
+ if s = 0 then player0:         
+         %01101110  
+         %00100110  
+         %00100110  
+         %00111100  
+         %00111110  
+         %11111111  
+         %10111101  
+         %11111111  
+         %00111111  
+         %00011100  
+         %00100111  
+         %00100011  
+         %00100011  
+         %00111111  
+         %00011110  
+         %00001100  
 end
 
  monsterSprite = monsterSprite + 1       : rem animation frames for monster
