@@ -24,6 +24,8 @@
     h = 90   : rem monster position horizontal
     m = 0    : rem counter for monster animation frames
     n = 0    : rem counter for player animation frames
+    q = (rand & 3) - 1  : rem Random X movement monster (-1, 0, 1)
+    r = (rand & 3) - 1  : rem Random Y movement monster (-1, 0, 1)
 
    rem ---------------------------------------------------------------------------------
   dim p0y =  d : rem player vertical position
@@ -34,8 +36,8 @@
 
   dim monsterSprite = m : rem set variable m, counter fo monster animation frames
   dim playerSprite =  n : rem set variable n, counter fo player animation frames
-
-   rem ---------------------------------------------------------------------------------
+    
+    rem ---------------------------------------------------------------------------------
   player0x = p0x : rem set player position x
   player0y = p0y : rem set player position y
   player1y = p1y : rem set monster position y
@@ -116,9 +118,9 @@ end
         %00011000
 end
 
- monsterSprite=monsterSprite+1       : rem animation frames for monster
+ monsterSprite = monsterSprite + 1       : rem animation frames for monster
  
-  if monsterSprite=10 then player1: 
+ if monsterSprite = 10 then player1: 
         %00011100
         %00011000
         %00011000
@@ -131,7 +133,8 @@ end
         %00111100
         %00011000
 end
- if monsterSprite=20 then player1:
+
+ if monsterSprite = 20 then player1:
         %01000011
         %01100010
         %00110110
@@ -144,7 +147,8 @@ end
         %00111100
         %00011000
 end
- if monsterSprite=30 then player1:
+
+ if monsterSprite = 30 then player1:
         %00011100
         %00011000
         %00011000
@@ -157,8 +161,6 @@ end
         %00111100
         %00011000
 end
-
- if monsterSprite>30 then monsterSprite=0
 
    rem ---------------------------------------------------------------------------------
    playfield:
@@ -183,6 +185,9 @@ end
    if collision(missile0,player1) then COLUBK = $46 + (rand & 2) : rem when bullets collide with monster blink screen background
    if collision(player0,player1) then COLUBK =  $46 + (rand & 2) : rem when player collide with monster blink screen background
 
+   if collision(missile0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30 : rem if missile and monster collide monster changes position
+   if collision(player0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30  : rem if player and monster collide monster changes position
+
    rem ---------------------------------------------------------------------------------
    p0x = 0                   : rem player movement sprite left & right
    if joy0left then p0x = 255
@@ -193,6 +198,20 @@ end
    if joy0up then p0y = 255
    if joy0down then p0y = 1
    player0y = player0y + p0y
+
+    rem Declare variables
+    dim enemy_move_counter = v
+    dim enemy_fire_counter = o
+
+    rem Increase counters every frame
+    enemy_move_counter = enemy_move_counter + 1
+    enemy_fire_counter = enemy_fire_counter + 1
+
+    rem Move enemy only every 255 frames (slowest possible)
+    if enemy_move_counter > 254 then 
+   player1x = player1x + q
+   player1y = player1y + r
+   enemy_move_counter = 0  : rem Reset counter after movement
 
    rem ---------------------------------------------------------------------------------
    rem This section sets a value for the last direction the joystick was pushed
@@ -261,6 +280,7 @@ end
 
    rem ---------------------------------------------------------------------------------
    if collision(player0,playfield) then gosub knock_player_back : rem if player collides with playfield knockback
+   if collision(player1,playfield) then gosub knock_monster_back : rem if player collides with playfield knockback
 
    goto main
 
@@ -269,4 +289,10 @@ knock_player_back
    player0x = player0x - p0x
    player0y = player0y - p0y
    return
+
+  rem knockback function
+knock_monster_back            
+   player1x = player1x - p0x
+   player1y = player1y - p0y
+   return   
 
