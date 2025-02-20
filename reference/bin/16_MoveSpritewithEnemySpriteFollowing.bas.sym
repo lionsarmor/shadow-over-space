@@ -97,8 +97,8 @@
 6.CYCLES                 0004              (R )
 7.CYCLES                 0000              (R )
 8.CYCLES                 0006              (R )
-a                        00d4                  
 A                        00d4                  
+a                        00d4                  
 alarmclock               0002                  
 altkernel                f0e4                  
 AUDC0                    0015                  
@@ -113,8 +113,8 @@ aux3                     00f2
 aux4                     00f3                  
 aux5                     00f4                  
 aux6                     00f5                  
-b                        00d5                  
 B                        00d5                  
+b                        00d5                  
 backgroundchange         0000 ????         (R )
 ballheight               0092              (R )
 ballx                    0084                  
@@ -159,8 +159,8 @@ ENAM0                    001d              (R )
 ENAM1                    001e              (R )
 endkernel                f178              (R )
 enterlastkernel          f127              (R )
-f                        00d9                  
 F                        00d9                  
+f                        00d9                  
 font                     0000 ????         (R )
 G                        00da                  
 g                        00da                  
@@ -168,8 +168,8 @@ game                     f45d              (R )
 goback                   f0a6              (R )
 GRP0                     001b              (R )
 GRP1                     001c              (R )
-h                        00db                  
 H                        00db                  
+h                        00db                  
 handwritten              0003                  
 hex                      0008                  
 HMBL                     0024                  
@@ -192,16 +192,16 @@ INPT5                    000d
 interlaced               0000 ????         (R )
 interrupted              0004                  
 INTIM                    0284              (R )
-j                        00dd                  
 J                        00dd                  
+j                        00dd                  
 K                        00de                  
 k                        00de                  
 keepgoing                f284              (R )
 keepgoingy               f2a0              (R )
 kernel                   f034              (R )
 kernelmacrodef           0000 ????         (R )
-l                        00df                  
 L                        00df                  
+l                        00df                  
 lastkernelline           f101              (R )
 leftloop                 f2f7              (R )
 legacy                   0000 ????         (R )
@@ -301,8 +301,8 @@ playfield                00a4              (R )
 playfieldbase            00a4              (R )
 playfieldpos             00ef              (R )
 plotpoint                f2ac              (R )
-q                        00e4                  
 Q                        00e4                  
+q                        00e4                  
 qtcontroller             0000 ????         (R )
 R                        00e5                  
 r                        00e5                  
@@ -324,8 +324,8 @@ retroputer               0005
 rightloop                f30d              (R )
 ROM2k                    0000 ????         (R )
 RSYNC                    0003                  
-s                        00e6                  
 S                        00e6                  
+s                        00e6                  
 score                    0093              (R )
 scorecolor               00a3              (R )
 scorefade                0000 ????         (R )
@@ -365,8 +365,8 @@ TIM64T                   0296              (R )
 TIM8T                    0295                  
 TIMINT                   0285                  
 tiny                     0007                  
-u                        00e8                  
 U                        00e8                  
+u                        00e8                  
 up2                      f342              (R )
 V                        00e9                  
 v                        00e9              (R )
@@ -436,8 +436,8 @@ whimsey                  0006
 WSYNC                    0002              (R )
 X                        00eb                  
 x                        00eb              (R )
-y                        00ec              (R )
 Y                        00ec                  
+y                        00ec              (R )
 Z                        00ed                  
 z                        00ed                  
 --- End of Symbol List.
