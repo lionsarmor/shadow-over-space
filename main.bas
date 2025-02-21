@@ -32,17 +32,21 @@
     u = 0    : rem win or leveling flag
 
    rem ---------------------------------------------------------------------------------
-  dim p0y =  d          : rem player vertical position
-  dim p0x =  f          : rem player horizontal position
-  dim p1y =  g          : rem set p1y to g, monster vertical position
-  dim p1x =  h          : rem set p1x to h, moster horizantal position
-  dim monsterSprite = m : rem set variable m, counter fo monster animation frames
-  dim playerSprite =  n : rem set variable n, counter fo player animation frames
-  dim moved = 0         : rem Flag to check if the player moved
-  dim winflag = u       : rem win or leveling flag
-  dim playerHealth = j  : rem player health
-  dim monsterHealth = p : rem player health
-  const pfscore = 1     : rem enables health bars
+  dim p0y =  d            : rem player vertical position
+  dim p0x =  f            : rem player horizontal position
+  dim p1y =  g            : rem set p1y to g, monster vertical position
+  dim p1x =  h            : rem set p1x to h, moster horizantal position
+  dim monsterSprite = m   : rem set variable m, counter fo monster animation frames
+  dim playerSprite =  n   : rem set variable n, counter fo player animation frames
+  dim moved = 0           : rem Flag to check if the player moved
+  dim winflag = u         : rem win or leveling flag
+  dim playerHealth = j    : rem player health
+  dim monsterHealth = p   : rem player health
+  const pfscore = 1       : rem enables health bars
+  dim explosion_timer = a : rem sound, explosion timer
+  dim missile1dist = 0
+
+
    
   pfscorecolor = 65  : rem Set the health bar color to green
   scorecolor = 00     : rem set the score counter color
@@ -494,12 +498,20 @@ end
     COLUBK = 00                : rem BACKGROUND BALCK Change the background color with COLUBK
    rem ---------------------------------------------------------------------------------
 
-   if collision(missile1, player0) then player1x = (rand & 63) + 40 : player0y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : playerHealth = playerHealth - 1 : rem if missile and monster collide monster changes position
-   if collision(missile0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30 : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : monsterHealth = monsterHealth - 1 : rem if missile and monster collide monster changes position
-   if collision(player0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30  : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : playerHealth = playerHealth - 1 : rem if player and monster collide monster changes position
-   
+   if collision(missile1, player0) then player1x = (rand & 63) + 40 : player0y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : playerHealth = playerHealth - 1  :    AUDV0 = 15 : AUDC0 = 10 : AUDF0 = 6 : explosion_timer = 30
+   if collision(missile0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30 : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) :    AUDV0 = 15 : AUDC0 = 10 : AUDF0 = 6 : explosion_timer = 30
+
    rem ---------------------------------------------------------------------------------
    if collision(player0,playfield) then gosub knock_player_back : rem if player collides with playfield knockback
+
+   rem ---------------------------------------------------------------------------------
+   if joy0fire then AUDV0 = 12 : AUDC0 = 10 : AUDF0 = 19 : rem Play a sound
+   if !joy0fire then AUDV0 = 0 : rem Stop the sound when fire is released
+   if collision(player0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30 : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : playerHealth = playerHealth - 1  : AUDV0 = 15 : AUDC0 = 10 : AUDF0 = 6 : explosion_timer = 30
+
+   rem ---------------------------------------------------------------------------------
+   if explosion_timer > 0 then explosion_timer = explosion_timer - 1 : if explosion_timer = 20 then AUDF0 = 8 : if explosion_timer = 10 then AUDF0 = 12
+   if explosion_timer = 0 then AUDV0 = 0
 
    rem pill removal logic
    if playerHealth = 3 then pfscore1 = %00101010 
@@ -511,10 +523,10 @@ end
    if monsterHealth = 3 then pfscore2 = %00101010  
    if monsterHealth = 2 then pfscore2 = %00001010  
    if monsterHealth = 1 then pfscore2 = %00000010  
-   if monsterHealth = 0 then pfscore2 = %00000000  : winflag = winflag + 1 : monsterHealth = 3 : playerHealth = 3 : rem iterate levels and reset player health
+   if monsterHealth = 0 then pfscore2 = %00000000  : winflag = winflag + 1 : monsterHealth = 30 : playerHealth = 4 : rem iterate levels and reset player health
  rem ---------------------------------------------------------------------------------
-   if winflag = 3 then goto win                         : rem if beaten 3rd monster win the game
-   if playerHealth = 0 then goto lose                              : rem player get hit 5 times lose
+   if winflag = 3 then AUDV0 = 0 : explosion_timer = 0 : goto win : rem if beaten 3rd monster win the game
+   if playerHealth = 0 then AUDV0 = 0 : goto lose                 : rem player get hit 5 times lose
   rem ---------------------------------------------------------------------------------
    p0x = 0                   : rem player movement sprite left & right
    if joy0left then p0x = 255 
@@ -589,31 +601,18 @@ end
    if !joy0up && !joy0down && !joy0left && !joy0right then y=30 
 
    rem ------------------------------------------------------------------
-   rem monster movement logic
-   z = z + 1  : rem Counter for movement timing
+   rem Monster AI: Moves randomly every 40 frames
+    if z = 0 then p1x = (rand & 2) - 1 : p1y = (rand & 2) - 1 : z = 30
+    if z < 10 then player1x = player1x + p1x : player1y = player1y + p1y
+    z = z - 1
+    if collision(player1, playfield) then player1x = player1x - p1x * 2 : player1y = player1y - p1y * 2 : p1x = -p1x : p1y = -p1y
 
-   if z > 40 then player1x = player1x + p1x  
-   if z > 80 then player1y = player1y + p1y : z = 0  : rem Reset movement counter
-
-   rem If Player 1 collides with the playfield, move back and reverse direction
-   if collision(player1, playfield) then player1x = player1x - p1x : player1y = player1y - p1y : p1x = -p1x : p1y = -p1y 
-
-   rem Keep Player 1 inside the screen boundaries
-   if player1x > 120 then player1x = 120 : p1x = -1
-   if player1x < 10 then player1x = 10  : p1x = 1
-   if player1y > 80 then player1y = 80  : p1y = -1
-   if player1y < 10 then player1y = 10  : p1y = 1
 
    rem ------------------------------------------------------------------
-   rem monster missile logic
-   if (rand & 3) = 0 && missile1x = 0 then missile1x = player1x : missile1y = player1y
-   if missile1x > 0 then missile1x = missile1x + (rand & 3) - 1 : missile1y = missile1y + (rand & 3) - 1
-   if missile1x > 120 then missile1x = 120 : missile1x = missile1x - 1
-   if missile1x < 10 then missile1x = 10 : missile1x = missile1x + 1
-   if missile1y > 80 then missile1y = 180 : missile1y = missile1y - 1
-   if missile1y < 10 then missile1y = 0 : missile1y = missile1y + 1
-   if collision(missile1, playfield) then missile1x = missile1x - (rand & 3) + 1 : missile1y = missile1y - (rand & 3) + 1
-   if missile1x = player1x && missile1y = player1y then missile1x = 0 : missile1y = 0
+   rem Monster AI: fires randomly left
+    if missile1x = 0 then missile1x = player1x : missile1y = player1y : AUDV0 = 10 : AUDC0 = 8 : AUDF0 = 4
+    missile1x = missile1x - 1
+    if missile1x < 0 then missile1x = 0 : AUDV0 = 0
 
    drawscreen
 
@@ -627,7 +626,6 @@ knock_player_back
 
 win
   COLUPF = $1C + (rand & 3)  : rem Set random yellow shades for the playfield
-
  playfield:
  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
  X..............................X
@@ -641,12 +639,11 @@ win
  X.XXX..XXX.XX.XX........XXX.XX.X
  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 end
- drawscreen
- goto win
+  drawscreen
+  goto win
 
 lose
   COLUPF = $4C + (rand & 3)  : rem Set random red shades for the playfield
-
  playfield:
  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
  X..............................X
