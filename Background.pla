@@ -1,5 +1,5 @@
  playfield:
- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ .XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
  X..............................X
  X..............................X
  X..............................X
@@ -9,5 +9,5 @@
  X........XX.XX.................X
  X..X.....XX.XX....X.......X....X
  XX.XX.X..XX.XX..X.X.X..X.XX..X.X
- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ .XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
 end

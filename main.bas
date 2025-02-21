@@ -447,7 +447,7 @@ end
 
    rem ---------------------------------------------------------------------------------
   if winflag = 0 then playfield:
- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ .XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
  X..............................X
  X..............................X
  X..............................X
@@ -457,12 +457,13 @@ end
  X........XX.XX.................X
  X..X.....XX.XX....X.......X....X
  XX.XX.X..XX.XX..X.X.X..X.XX..X.X
- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ .XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
 end
 
 
+
   if winflag = 1 then playfield:
- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ .XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
  X..............................X
  X..............................X
  X..............................X
@@ -472,21 +473,21 @@ end
  X..............................X
  X......X.X..........X..........X
  X.X.X..X.X..X.X....XXX........XX
- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ .XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
 end
 
   if winflag = 2 then playfield:
- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
- X.......................XXX....X
- X..X.......XXX............X....X
- X.........X...X...........X....X
- X.........X...X................X
- X..........XXX.................X
- X...X..........................X
- X..XX................XXXX......X
+ .XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+ X..XX..XXXXXXXX.........XXXXXXXX
+ X..XX.....................X...XX
+ X..............................X
+ X..............................X
+ X..............................X
+ X..............................X
+ X...X................XXXX......X
  X....................XXXX......X
- X....................XXXX......X
- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ XXXXX.....XXXXX......XXXX.X..XXX
+ .XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
 end
 
 
@@ -512,7 +513,7 @@ end
    rem ---------------------------------------------------------------------------------
    if explosion_timer > 0 then explosion_timer = explosion_timer - 1 : if explosion_timer = 20 then AUDF0 = 8 : if explosion_timer = 10 then AUDF0 = 12
    if explosion_timer = 0 then AUDV0 = 0
-
+   winflag = 1
    rem pill removal logic
    if playerHealth = 3 then pfscore1 = %00101010 
    if playerHealth = 2 then pfscore1 = %00001010 
@@ -525,6 +526,8 @@ end
    if monsterHealth = 1 then pfscore2 = %00000010  
    if monsterHealth = 0 then pfscore2 = %00000000 : monsterHealth = 10 : playerHealth = 4 : winflag = winflag + 1 : pfscore2 = %10101010
  rem ---------------------------------------------------------------------------------
+   if winflag = 1 then COLUP1 = 17 + (rand & 7) : COLUPF = $36 + (rand & 7)
+   if winflag = 2 then COLUP1 = 65 + (rand & 7) : COLUPF = $1 + (rand & 7)
    if winflag = 3 then AUDV0 = 0 : explosion_timer = 0 : goto win : rem if beaten 3rd monster win the game
    if playerHealth = 0 then AUDV0 = 0 : goto lose                 : rem player get hit 5 times lose
   rem ---------------------------------------------------------------------------------
