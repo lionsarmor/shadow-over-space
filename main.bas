@@ -48,7 +48,6 @@
 
 
    
-  pfscorecolor = 65  : rem Set the health bar color to green
   scorecolor = 00     : rem set the score counter color
 
     rem ---------------------------------------------------------------------------------
@@ -496,6 +495,7 @@ end
     COLUP1 = $C0 + (rand & 7)  : rem MONSTER COLUP0=<xx> sets the color of the player 0 sprite. Valid range is 0-254 , randomizes colors 
     COLUPF = $A0 + (rand & 7)  : rem PLAYFIELD You need to set a color for the playfield
     COLUBK = 00                : rem BACKGROUND BALCK Change the background color with COLUBK
+    pfscorecolor = 65 + (rand & 7)  : rem Set the health bar color to green   
    rem ---------------------------------------------------------------------------------
 
    if collision(missile1, player0) then player1x = (rand & 63) + 40 : player0y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : playerHealth = playerHealth - 1  :    AUDV0 = 15 : AUDC0 = 10 : AUDF0 = 6 : explosion_timer = 30
