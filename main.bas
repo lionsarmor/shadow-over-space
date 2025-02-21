@@ -26,8 +26,8 @@
     n = 0    : rem counter for player animation frames
     z = 0    : rem Flag to simulate monster ai
     k = 0    : rem flag for monster missile
-    p = 20   : rem flag for monster health
-    j = 5    : rem flag for player health
+    p = 30    : rem flag for monster health
+    j = 4  : rem flag for player health
     s = 0    : rem player sprite direction
     u = 0    : rem win or leveling flag
 
@@ -40,6 +40,12 @@
   dim playerSprite =  n : rem set variable n, counter fo player animation frames
   dim moved = 0         : rem Flag to check if the player moved
   dim winflag = u       : rem win or leveling flag
+  dim playerHealth = j  : rem player health
+  dim monsterHealth = p : rem player health
+  const pfscore = 1     : rem enables health bars
+   
+  pfscorecolor = 65  : rem Set the health bar color to green
+  scorecolor = 00     : rem set the score counter color
 
     rem ---------------------------------------------------------------------------------
   player0x = p0x        : rem set player position x
@@ -47,7 +53,8 @@
   player1y = p1y        : rem set monster position y
   player1x = p1x        : rem set monster position x
 
-
+  pfscore1 = %10101010 : rem Full health (4 pills)
+  pfscore2 = %10101010 : rem monster health bar
 
 titlescreen
    rem ---------------------------------------------------------------------------------
@@ -74,14 +81,8 @@ end
 
  goto titlescreen : rem if the joystick button is not pressed, just loop back to the titlescreen again
 
-  pfscore1 = pfscore1/2
    rem ---------------------------------------------------------------------------------
 main
-
-   rem ---------------------------------------------------------------------------------
-   if p = 0 then winflag = winflag + 1 : j = 5 : p = 30 : rem iterate levels and reset player health
-   if winflag = 3 then goto win                         : rem if beaten 3rd monster win the game
-   if j = 0 then goto lose                              : rem player get hit 5 times lose
 
    playerSprite = playerSprite + 1  : rem Increase animation frame counter
    if playerSprite > 30 then playerSprite = 0  : rem Reset animation cycle
@@ -493,12 +494,28 @@ end
     COLUBK = 00                : rem BACKGROUND BALCK Change the background color with COLUBK
    rem ---------------------------------------------------------------------------------
 
-   if collision(missile1, player0) then player1x = (rand & 63) + 40 : player0y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : j = j - 1 : rem if missile and monster collide monster changes position
-
-   if collision(missile0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30 : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : p = p - 1 : rem if missile and monster collide monster changes position
-   if collision(player0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30  : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : j = j - 1 : rem if player and monster collide monster changes position
-
+   if collision(missile1, player0) then player1x = (rand & 63) + 40 : player0y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : playerHealth = playerHealth - 1 : rem if missile and monster collide monster changes position
+   if collision(missile0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30 : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : monsterHealth = monsterHealth - 1 : rem if missile and monster collide monster changes position
+   if collision(player0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30  : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : playerHealth = playerHealth - 1 : rem if player and monster collide monster changes position
+   
    rem ---------------------------------------------------------------------------------
+   if collision(player0,playfield) then gosub knock_player_back : rem if player collides with playfield knockback
+
+   rem pill removal logic
+   if playerHealth = 3 then pfscore1 = %00101010 
+   if playerHealth = 2 then pfscore1 = %00001010 
+   if playerHealth = 1 then pfscore1 = %00000010 
+   if playerHealth = 0 then pfscore1 = %00000000  
+   
+   rem monster health bar
+   if monsterHealth = 3 then pfscore2 = %00101010  
+   if monsterHealth = 2 then pfscore2 = %00001010  
+   if monsterHealth = 1 then pfscore2 = %00000010  
+   if monsterHealth = 0 then pfscore2 = %00000000  : winflag = winflag + 1 : monsterHealth = 3 : playerHealth = 3 : rem iterate levels and reset player health
+ rem ---------------------------------------------------------------------------------
+   if winflag = 3 then goto win                         : rem if beaten 3rd monster win the game
+   if playerHealth = 0 then goto lose                              : rem player get hit 5 times lose
+  rem ---------------------------------------------------------------------------------
    p0x = 0                   : rem player movement sprite left & right
    if joy0left then p0x = 255 
    if joy0right then p0x = 1  
@@ -599,9 +616,6 @@ end
    if missile1x = player1x && missile1y = player1y then missile1x = 0 : missile1y = 0
 
    drawscreen
-
-   rem ---------------------------------------------------------------------------------
-   if collision(player0,playfield) then gosub knock_player_back : rem if player collides with playfield knockback
 
    goto main
 
