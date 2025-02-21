@@ -2932,9 +2932,9 @@
    1752  f4bb
    1753  f4bb		       a9 0a		      LDA	#10
    1754  f4bd		       85 e3		      STA	p
-   1755  f4bf				   .L027		;  j  =  4  :	rem flag for player health
+   1755  f4bf				   .L027		;  j  =  200  :  rem flag for player health
    1756  f4bf
-   1757  f4bf		       a9 04		      LDA	#4
+   1757  f4bf		       a9 c8		      LDA	#200
    1758  f4c1		       85 dd		      STA	j
    1759  f4c3				   .L028		;  s  =  0  :	rem player sprite direction
    1760  f4c3
