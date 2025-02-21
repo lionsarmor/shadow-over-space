@@ -513,7 +513,6 @@ end
    rem ---------------------------------------------------------------------------------
    if explosion_timer > 0 then explosion_timer = explosion_timer - 1 : if explosion_timer = 20 then AUDF0 = 8 : if explosion_timer = 10 then AUDF0 = 12
    if explosion_timer = 0 then AUDV0 = 0
-   winflag = 1
    rem pill removal logic
    if playerHealth = 3 then pfscore1 = %00101010 
    if playerHealth = 2 then pfscore1 = %00001010 
