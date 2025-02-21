@@ -641,7 +641,6 @@ win
  X.XXX..XXX.XX.XX........XXX.XX.X
  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 end
-  if joy0fire then playerHealth = 4 : monsterHealth = 10 : winflag = 0 : pfscore1 = %10101010 : pfscore2 = %10101010 : goto titlescreen
   drawscreen
   goto win
 
@@ -660,7 +659,7 @@ lose
  X............XXXXXXX....XX.....X
  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 end
-  if joy0fire then playerHealth = 4 : monsterHealth = 10 : winflag = 0 : pfscore1 = %10101010 : pfscore2 = %10101010 : goto titlescreen
+  if joy0fire && joy0up then playerHealth = 4 : monsterHealth = 10 : winflag = 0 : pfscore1 = %10101010 : pfscore2 = %10101010 : goto titlescreen
   drawscreen
   goto lose
 
