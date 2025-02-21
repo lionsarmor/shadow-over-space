@@ -2928,9 +2928,9 @@
    1748  f4b7
    1749  f4b7		       a9 00		      LDA	#0
    1750  f4b9		       85 de		      STA	k
-   1751  f4bb				   .L026		;  p  =  30  :  rem flag for monster health
+   1751  f4bb				   .L026		;  p  =  10  :  rem flag for monster health
    1752  f4bb
-   1753  f4bb		       a9 1e		      LDA	#30
+   1753  f4bb		       a9 0a		      LDA	#10
    1754  f4bd		       85 e3		      STA	p
    1755  f4bf				   .L027		;  j  =  4  :	rem flag for player health
    1756  f4bf
@@ -4077,7 +4077,7 @@
    2897  f92d		       a9 02		      LDA	#%00000010
    2898  f92f		       85 f3		      STA	pfscore2
    2899  f931				   .skipL0118
-   2900  f931				   .L0119		;  if monsterHealth  =  0 then pfscore2  =  %00000000	:  winflag  =  winflag	+  1  :  monsterHealth	=  30  :  playerHealth	=  4  :  rem iterate levels and reset player health
+   2900  f931				   .L0119		;  if monsterHealth  =  0 then pfscore2  =  %00000000	:  winflag  =  winflag	+  1  :  monsterHealth	=  10  :  playerHealth	=  4  :  rem iterate levels and reset player health
    2901  f931
    2902  f931		       a5 e3		      LDA	monsterHealth
    2903  f933		       c9 00		      CMP	#0
@@ -4086,7 +4086,7 @@
    2906  f937		       a9 00		      LDA	#%00000000
    2907  f939		       85 f3		      STA	pfscore2
    2908  f93b		       e6 e8		      INC	winflag
-   2909  f93d		       a9 1e		      LDA	#30
+   2909  f93d		       a9 0a		      LDA	#10
    2910  f93f		       85 e3		      STA	monsterHealth
    2911  f941		       a9 04		      LDA	#4
    2912  f943		       85 dd		      STA	playerHealth

@@ -26,7 +26,7 @@
     n = 0    : rem counter for player animation frames
     z = 0    : rem Flag to simulate monster ai
     k = 0    : rem flag for monster missile
-    p = 30    : rem flag for monster health
+    p = 10    : rem flag for monster health
     j = 4  : rem flag for player health
     s = 0    : rem player sprite direction
     u = 0    : rem win or leveling flag
@@ -523,7 +523,7 @@ end
    if monsterHealth = 3 then pfscore2 = %00101010  
    if monsterHealth = 2 then pfscore2 = %00001010  
    if monsterHealth = 1 then pfscore2 = %00000010  
-   if monsterHealth = 0 then pfscore2 = %00000000  : winflag = winflag + 1 : monsterHealth = 30 : playerHealth = 4 : rem iterate levels and reset player health
+   if monsterHealth = 0 then pfscore2 = %00000000  : winflag = winflag + 1 : monsterHealth = 10 : playerHealth = 4 : rem iterate levels and reset player health
  rem ---------------------------------------------------------------------------------
    if winflag = 3 then AUDV0 = 0 : explosion_timer = 0 : goto win : rem if beaten 3rd monster win the game
    if playerHealth = 0 then AUDV0 = 0 : goto lose                 : rem player get hit 5 times lose
