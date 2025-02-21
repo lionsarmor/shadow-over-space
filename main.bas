@@ -27,7 +27,7 @@
     z = 0    : rem Flag to simulate monster ai
     k = 0    : rem flag for monster missile
     p = 10    : rem flag for monster health
-    j = 200  : rem flag for player health
+    j = 4  : rem flag for player health
     s = 0    : rem player sprite direction
     u = 0    : rem win or leveling flag
 
@@ -507,7 +507,7 @@ end
    rem ---------------------------------------------------------------------------------
    if joy0fire then AUDV0 = 12 : AUDC0 = 10 : AUDF0 = 19 : rem Play a sound
    if !joy0fire then AUDV0 = 0 : rem Stop the sound when fire is released
-   if collision(player0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30 : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : monsterHealth = monsterHealth - 2 : playerHealth = playerHealth - 1  : AUDV0 = 15 : AUDC0 = 10 : AUDF0 = 6 : explosion_timer = 30
+   if collision(player0, player1) then player1x = (rand & 63) + 40 : player1y = (rand & 31) + 30 : missile1y = (rand & 31) + 30 : COLUBK = $46 + (rand & 2) : monsterHealth = monsterHealth - 1 : playerHealth = playerHealth - 1  : AUDV0 = 15 : AUDC0 = 10 : AUDF0 = 6 : explosion_timer = 30
 
    rem ---------------------------------------------------------------------------------
    if explosion_timer > 0 then explosion_timer = explosion_timer - 1 : if explosion_timer = 20 then AUDF0 = 8 : if explosion_timer = 10 then AUDF0 = 12
@@ -523,7 +523,7 @@ end
    if monsterHealth = 3 then pfscore2 = %00101010  
    if monsterHealth = 2 then pfscore2 = %00001010  
    if monsterHealth = 1 then pfscore2 = %00000010  
-   if monsterHealth = 0 then pfscore2 = %00000000  : winflag = winflag + 1 : monsterHealth = 10 : playerHealth = 4 : rem iterate levels and reset player health
+   if monsterHealth = 0 then pfscore2 = %00000000 : monsterHealth = 10 : playerHealth = 4 : winflag = winflag + 1 : pfscore2 = %10101010
  rem ---------------------------------------------------------------------------------
    if winflag = 3 then AUDV0 = 0 : explosion_timer = 0 : goto win : rem if beaten 3rd monster win the game
    if playerHealth = 0 then AUDV0 = 0 : goto lose                 : rem player get hit 5 times lose
@@ -639,6 +639,7 @@ win
  X.XXX..XXX.XX.XX........XXX.XX.X
  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 end
+  if joy0fire then playerHealth = 4 : monsterHealth = 10 : winflag = 0 : pfscore1 = %10101010 : pfscore2 = %10101010 : goto titlescreen
   drawscreen
   goto win
 
@@ -657,6 +658,7 @@ lose
  X............XXXXXXX....XX.....X
  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 end
+  if joy0fire then playerHealth = 4 : monsterHealth = 10 : winflag = 0 : pfscore1 = %10101010 : pfscore2 = %10101010 : goto titlescreen
   drawscreen
   goto lose
 
