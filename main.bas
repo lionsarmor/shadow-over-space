@@ -26,27 +26,26 @@
     n = 0    : rem counter for player animation frames
     z = 0    : rem Flag to simulate monster ai
     k = 0    : rem flag for monster missile
-    p = 30   : rem flag for monster health
+    p = 20   : rem flag for monster health
     j = 5    : rem flag for player health
     s = 0    : rem player sprite direction
+    u = 0    : rem win or leveling flag
 
    rem ---------------------------------------------------------------------------------
-  dim p0y =  d : rem player vertical position
-  dim p0x =  f : rem player horizontal position
-
-  dim p1y =  g : rem set p1y to g, monster vertical position
-  dim p1x =  h : rem set p1x to h, moster horizantal position
-
+  dim p0y =  d          : rem player vertical position
+  dim p0x =  f          : rem player horizontal position
+  dim p1y =  g          : rem set p1y to g, monster vertical position
+  dim p1x =  h          : rem set p1x to h, moster horizantal position
   dim monsterSprite = m : rem set variable m, counter fo monster animation frames
   dim playerSprite =  n : rem set variable n, counter fo player animation frames
-
   dim moved = 0         : rem Flag to check if the player moved
+  dim winflag = u       : rem win or leveling flag
 
     rem ---------------------------------------------------------------------------------
-  player0x = p0x : rem set player position x
-  player0y = p0y : rem set player position y
-  player1y = p1y : rem set monster position y
-  player1x = p1x : rem set monster position x
+  player0x = p0x        : rem set player position x
+  player0y = p0y        : rem set player position y
+  player1y = p1y        : rem set monster position y
+  player1x = p1x        : rem set monster position x
 
 
 
@@ -75,112 +74,375 @@ end
 
  goto titlescreen : rem if the joystick button is not pressed, just loop back to the titlescreen again
 
-
+  pfscore1 = pfscore1/2
    rem ---------------------------------------------------------------------------------
 main
 
    rem ---------------------------------------------------------------------------------
-   if p = 0 then goto win    : rem player hits monster 30 times win
-   if j = 0 then goto lose   : rem player get hit 5 times lose
-
-     if joy0right then w = 1  : rem Set direction to right
-   if joy0left then w = 0   : rem Set direction to left
+   if p = 0 then winflag = winflag + 1 : j = 5 : p = 30 : rem iterate levels and reset player health
+   if winflag = 3 then goto win                         : rem if beaten 3rd monster win the game
+   if j = 0 then goto lose                              : rem player get hit 5 times lose
 
    playerSprite = playerSprite + 1  : rem Increase animation frame counter
-
    if playerSprite > 30 then playerSprite = 0  : rem Reset animation cycle
 
    if joy0right then s = 1  : rem Set direction to right
    if joy0left then s = 0   : rem Set direction to left
 
-   playerSprite = playerSprite + 1  : rem Increase animation frame counter
-
-   if playerSprite > 30 then playerSprite = 0  : rem Reset animation cycle
-
-   if s = 1 then player0:
-         %01110110 
-         %01100100 
-         %01100100 
-         %00111100 
-         %01111100
-         %11111111
-         %10111101
-         %11111111
-         %11111100
-         %00111000
-         %11100100
-         %11000100
-         %11000100
-         %11111100
-         %01111000
-         %00110000 
+    rem idle player sprite           
+   if !joy0left && !joy0right && !joy0up && !joy0down && !joy0fire then player0:
+    %00011100
+    %00011000
+    %00011000
+    %00100000
+    %00011000
+    %01011111
+    %01100100
+    %00010000
+    %00011000
+    %00011000
+    %00000000
 end
 
- if s = 0 then player0:         
-         %01101110  
-         %00100110  
-         %00100110  
-         %00111100  
-         %00111110  
-         %11111111  
-         %10111101  
-         %11111111  
-         %00111111  
-         %00011100  
-         %00100111  
-         %00100011  
-         %00100011  
-         %00111111  
-         %00011110  
-         %00001100  
+    rem  player sprite animation left
+      if playerSprite = 10 && joy0left then player0: 
+    %00111000
+    %00011000
+    %00011000
+    %00000100
+    %00011000
+    %11111010
+    %00100110
+    %00001000
+    %00011000
+    %00011000
+    %00000000
 end
 
- monsterSprite = monsterSprite + 1       : rem animation frames for monster
- 
- if monsterSprite = 10 then player1: 
-        %00011100
-        %00011000
-        %00011000
-        %00100000
-        %00011000
-        %01011111
-        %01100100
-        %00010000
-        %00011000
-        %00111100
-        %00011000
+   if playerSprite = 20 && joy0left then player0: 
+    %11000010
+    %01000110
+    %01101100
+    %00111000
+    %00010100
+    %00111100
+    %00100100
+    %00001000
+    %00011000
+    %00011000
+    %00000000
 end
 
- if monsterSprite = 20 then player1:
-        %01000011
-        %01100010
-        %00110110
-        %00011100
-        %00101000
-        %00111100
-        %00100100
-        %00010000
-        %00011000
-        %00111100
-        %00011000
+
+   if playerSprite = 30 && joy0left then player0: 
+    %00111000
+    %00011000
+    %00011000
+    %00000100
+    %01011010
+    %00111110
+    %00100100
+    %00001000
+    %00011000
+    %00011000
+    %00000000
 end
 
- if monsterSprite = 30 then player1:
-        %00011100
-        %00011000
-        %00011000
-        %00100000
-        %01011010
-        %01111100
-        %00100100
-        %00010000
-        %00011000
-        %00111100
-        %00011000
+    rem player sprtite animation left
+   if playerSprite = 10 && joy0right then player0: 
+    %00011100
+    %00011000
+    %00011000
+    %00100000
+    %00011000
+    %01011111
+    %01100100
+    %00010000
+    %00011000
+    %00011000
+    %00000000
 end
+
+   if playerSprite = 20 && joy0right then player0: 
+    %01000011
+    %01100010
+    %00110110
+    %00011100
+    %00101000
+    %00111100
+    %00100100
+    %00010000
+    %00011000
+    %00011000
+    %00000000
+end
+
+   if playerSprite = 30 && joy0right then player0: 
+    %00011100
+    %00011000
+    %00011000
+    %00100000
+    %01011010
+    %01111100
+    %00100100
+    %00010000
+    %00011000
+    %00011000
+    %00000000
+end
+
+
+ monsterSprite = monsterSprite + 1             : rem animation frames for monster
+ if monsterSprite > 30 then monsterSprite = 0  : rem Reset animation cycle
+
+   rem monster stage 1
+ if monsterSprite = 10 && winflag = 0 then player1: 
+    %00011000
+    %00011000
+    %00011100
+    %00111110
+    %01111111
+    %11111111
+    %11011011
+    %11011011
+    %11111111
+    %01111110
+    %00111100
+    %00111100
+    %01111110
+    %01111110
+    %11111111
+    %01101110
+    %00100100
+    %00100100
+    %00011000
+    %00011000
+    %00011000
+    %00010000
+    %00010000
+    %00000000
+end
+
+ if monsterSprite = 20 && winflag = 0 then player1:
+    %00011000
+    %00011000
+    %00011100
+    %00111110
+    %01111111
+    %11111111
+    %11011011
+    %11011011
+    %11111111
+    %01111110
+    %00111100
+    %00111100
+    %01111110
+    %01101110
+    %11011111
+    %01101110
+    %00100100
+    %00100100
+    %00011000
+    %00011000
+    %00011000
+    %00010000
+    %00010000
+    %00000000
+end
+
+ if monsterSprite = 30 && winflag = 0 then player1:
+    %00011000
+    %00011000
+    %00011100
+    %00111110
+    %01111111
+    %11111111
+    %11011011
+    %11011011
+    %11111111
+    %01111110
+    %00111100
+    %00111100
+    %01111110
+    %01111110
+    %10111111
+    %01101110
+    %00100100
+    %00100100
+    %00011000
+    %00011000
+    %00011000
+    %00011000
+    %00011000
+    %00000000
+end
+   rem monster stage 2
+ if monsterSprite = 10 && winflag = 1 then player1: 
+    %00011000
+    %00011000
+    %00011000
+    %00011000
+    %00111100
+    %00111100
+    %00011000
+    %00011000
+    %00011000
+    %00111100
+    %01111110
+    %01100110
+    %00111100
+    %00011000
+    %00011000
+    %00100100
+    %00100100
+    %00100100
+    %01100110
+    %01100110
+    %00100100
+    %00100100
+    %01000010
+    %00000000
+end
+
+ if monsterSprite = 20 && winflag = 1 then player1:
+    %00011000
+    %00011000
+    %00011000
+    %00011000
+    %00111100
+    %00111100
+    %00011000
+    %00011000
+    %00011000
+    %00111100
+    %01111110
+    %01100110
+    %00111100
+    %00011000
+    %00011000
+    %00100100
+    %00100100
+    %00100100
+    %01100110
+    %01100110
+    %00000100
+    %00001000
+    %00010000
+    %00000000
+end
+
+ if monsterSprite = 30 && winflag = 1 then player1:
+    %00011000
+    %00011000
+    %00011000
+    %00011000
+    %00111100
+    %00111100
+    %00011000
+    %00011000
+    %00011000
+    %00111100
+    %01111110
+    %01100110
+    %00111100
+    %00011000
+    %00011000
+    %00100100
+    %00100100
+    %00100100
+    %01100110
+    %01100110
+    %00100000
+    %00010000
+    %00001000
+    %00000000
+end
+
+    rem monster stage 3
+ if monsterSprite = 10 && winflag = 2 then player1: 
+    %00011000
+    %00111100
+    %01111110
+    %11100111
+    %11011011
+    %11000011
+    %01111110
+    %00100100
+    %00100100
+    %00111100
+    %01111110
+    %01111110
+    %01100110
+    %00100100
+    %00100100
+    %01000010
+    %00011000
+    %00011000
+    %00011000
+    %00010000
+    %00010000
+    %00010000
+    %00001000
+    %00000000
+end
+
+ if monsterSprite = 20 && winflag = 2 then player1:
+    %00011000
+    %00111100
+    %01111110
+    %11100111
+    %11011011
+    %11000011
+    %01111110
+    %00100100
+    %00100100
+    %00111100
+    %01111110
+    %01111110
+    %01100110
+    %00100100
+    %00100100
+    %01000010
+    %00011000
+    %00011000
+    %00011000
+    %00010000
+    %00010000
+    %00010000
+    %00001000
+    %00000000
+end
+
+ if monsterSprite = 30 && winflag = 2 then player1:
+    %00011000
+    %00111100
+    %01111110
+    %11100111
+    %11011011
+    %11000011
+    %01111110
+    %00100100
+    %01100110
+    %01111110
+    %11111111
+    %11111111
+    %01111110
+    %01100110
+    %00100100
+    %00100100
+    %00100100
+    %00011000
+    %00011000
+    %00011000
+    %00011000
+    %00010000
+    %00010000
+    %00001000
+end
+
 
    rem ---------------------------------------------------------------------------------
- playfield:
+  if winflag = 0 then playfield:
  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
  X..............................X
  X..............................X
@@ -193,6 +455,36 @@ end
  XX.XX.X..XX.XX..X.X.X..X.XX..X.X
  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 end
+
+
+  if winflag = 1 then playfield:
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ X..............................X
+ X..............................X
+ X..............................X
+ X..............................X
+ X..............................X
+ X..............................X
+ X..............................X
+ X......X.X..........X..........X
+ X.X.X..X.X..X.X....XXX........XX
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+end
+
+  if winflag = 2 then playfield:
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ X.......................XXX....X
+ X..X.......XXX............X....X
+ X.........X...X...........X....X
+ X.........X...X................X
+ X..........XXX.................X
+ X...X..........................X
+ X..XX................XXXX......X
+ X....................XXXX......X
+ X....................XXXX......X
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+end
+
 
    rem ---------------------------------------------------------------------------------
     COLUP0= $70 + (rand & 7)   : rem PLAYER COLUP0=<xx> sets the color of the player 0 sprite. Valid range is 0-254 , randomizes colors 
